@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>QD Music Downloader</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <main class="shell">
+      <section class="hero" aria-label="QD Music downloader">
+        <div class="hero-image brand-hero" aria-hidden="true"></div>
+        <div class="hero-shade"></div>
+        <nav class="topbar" aria-label="Primary">
+          <a class="brand" href="#">
+            <span class="brand-mark">QD</span>
+            <span>QD Music</span>
+          </a>
+          <div class="nav-actions">
+            <a href="#download">Downloader</a>
+            <a href="#faq">Notes</a>
+          </div>
+        </nav>
+
+        <div class="hero-content">
+          <p class="eyebrow">Fast audio prep for permitted media</p>
+          <h1>QD Music</h1>
+          <p class="lede">Paste a YouTube link, choose audio only or audio plus video, and prepare a clean export flow for tracks you own or have permission to download.</p>
+        </div>
+      </section>
+
+      <section class="workspace" id="download">
+        <div class="download-panel">
+          <div class="panel-heading">
+            <div>
+              <p class="section-kicker">Create an export</p>
+              <h2>Downloader</h2>
+            </div>
+            <span class="status-pill" id="statusPill">Ready</span>
+          </div>
+
+          <form class="download-form" id="downloadForm">
+            <label class="field-label" for="urlInput">YouTube link</label>
+            <div class="input-row">
+              <input id="urlInput" name="url" type="url" placeholder="https://www.youtube.com/watch?v=..." autocomplete="off" required>
+              <button class="icon-button" type="button" id="pasteButton" aria-label="Paste link" title="Paste link">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 3h6l1 2h3v16H5V5h3l1-2Zm1.2 4h3.6l1-2h-5.6l1 2ZM7 7v12h10V7H7Z"/></svg>
+              </button>
+            </div>
+            <p class="helper" id="linkHint">Paste a link to preview the track before choosing audio or video.</p>
+
+            <div class="preview-card" id="previewCard" hidden>
+              <img id="previewThumb" alt="">
+              <div class="preview-copy">
+                <span>Preview</span>
+                <strong id="previewTitle">Waiting for link</strong>
+                <small id="previewArtist">QD Music</small>
+              </div>
+            </div>
+
+            <div class="mode-group" aria-label="Download type">
+              <button class="mode-card" type="button" id="audioButton" disabled>
+                <span class="mode-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24"><path d="M12 3v11.2A3.5 3.5 0 1 1 10 11V5h9v9.2A3.5 3.5 0 1 1 17 11V3h-5Z"/></svg>
+                </span>
+                <span>
+                  <strong>Download audio</strong>
+                  <small>Uses the preview title for the file name.</small>
+                </span>
+              </button>
+              <button class="mode-card" type="button" id="videoButton" disabled>
+                <span class="mode-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24"><path d="M4 5h16v12H4V5Zm2 2v8h12V7H6Zm4 12h4v2h-4v-2Z"/></svg>
+                </span>
+                <span>
+                  <strong>Download video</strong>
+                  <small>Starts the browser download flow.</small>
+                </span>
+              </button>
+            </div>
+          </form>
+        </div>
+
+        <aside class="queue-panel" aria-label="Download status">
+          <div class="meter">
+            <span id="meterFill"></span>
+          </div>
+          <div class="queue-copy">
+            <p class="section-kicker">Current job</p>
+            <h2 id="jobTitle">Paste a link</h2>
+            <p id="jobText">QD Music will show a preview, copy the artist and file name when metadata is available, then let you choose audio or video.</p>
+          </div>
+          <div class="result-box" id="resultBox" hidden>
+            <span class="result-label">Download file</span>
+            <strong id="resultName">qd-music-export.mp3</strong>
+            <button class="secondary-button" type="button" id="fakeDownloadButton">Download again</button>
+          </div>
+        </aside>
+      </section>
+
+      <section class="notes" id="faq">
+        <article>
+          <h2>Built for clean use</h2>
+          <p>This front end is ready for a server-side converter that only handles videos you own, have permission to download, or that are licensed for reuse.</p>
+        </article>
+        <article>
+          <h2>Next backend step</h2>
+          <p>A production version should run extraction on your server, enforce permissions, rate limits, file cleanup, and clear logging before returning a file.</p>
+        </article>
+        <article>
+          <h2>Brand direction</h2>
+          <p>QD Music uses a focused studio look with strong contrast, teal accents, coral action color, and compact controls made for repeat use.</p>
+        </article>
+      </section>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>
